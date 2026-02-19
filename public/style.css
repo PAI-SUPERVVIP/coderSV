@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-keyboard: #1c1c1e;
+  --bg-key: #3a3a3c;
+  --bg-key-active: #5a5a5c;
+  --text-primary: #ffffff;
+  --text-secondary: #8e8e93;
+  --accent-green: #30d158;
+  --border-color: #3a3a3c;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Mono', 'Menlo', monospace;
+  color: var(--text-primary);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.toolbar-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.toolbar-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.toolbar-btn {
+  padding: 6px 10px;
+  background: var(--bg-key);
+  border: none;
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  min-width: 36px;
+}
+
+.toolbar-btn:active {
+  background: var(--bg-key-active);
+  transform: scale(0.95);
+}
+
+.toolbar-btn.active {
+  background: var(--accent-green);
+  color: #000;
+}
+
+.terminal-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #000000;
+  padding: 12px;
+  overflow: hidden;
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.terminal-output {
+  flex: 1;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #ffffff;
+}
+
+.terminal-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+  background: var(--bg-key);
+  border-radius: 4px;
+}
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.prompt {
+  color: var(--accent-green);
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+#input-line {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: inherit;
+  caret-color: var(--accent-green);
+}
+
+.keyboard {
+  background: var(--bg-keyboard);
+  padding: 8px 4px;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.keyboard-row:last-child {
+  margin-bottom: 0;
+}
+
+.key {
+  min-width: 28px;
+  height: 42px;
+  background: var(--bg-key);
+  border: none;
+  border-radius: 5px;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.08s ease;
+  flex: 1;
+  max-width: 40px;
+}
+
+.key:active, .key.pressed {
+  background: var(--bg-key-active);
+  transform: scale(0.95);
+}
+
+.key-wide {
+  max-width: 50px;
+  font-size: 12px;
+}
+
+.key-caps {
+  max-width: 60px;
+  font-size: 12px;
+}
+
+.key-shift {
+  max-width: 55px;
+  font-size: 14px;
+}
+
+.key-fn {
+  max-width: 45px;
+  font-size: 11px;
+  background: #4a4a4c;
+}
+
+.key-space {
+  max-width: 180px;
+  flex: 2;
+}
+
+.key.active {
+  background: var(--accent-green);
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .keyboard {
+    padding: 10px 8px;
+  }
+  
+  .key {
+    min-width: 36px;
+    height: 48px;
+    max-width: 50px;
+  }
+  
+  .key-wide {
+    max-width: 65px;
+  }
+  
+  .key-caps {
+    max-width: 80px;
+  }
+  
+  .key-shift {
+    max-width: 70px;
+  }
+  
+  .key-fn {
+    max-width: 55px;
+  }
+  
+  .key-space {
+    max-width: 280px;
+  }
+}

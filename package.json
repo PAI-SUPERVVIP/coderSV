@@ -1,0 +1,15 @@
+{
+  "name": "web-terminal-ish",
+  "version": "1.0.0",
+  "description": "Web-based terminal with ish-style UI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "node-pty": "^1.0.0"
+  }
+}
